@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>mRNA Vaccine Design Report — MyVaccine</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+  h1 { color: #1a5276; border-bottom: 2px solid #1a5276; }
+  h2 { color: #1f618d; margin-top: 30px; }
+  h3 { color: #2874a6; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 13px; }
+  th { background: #1a5276; color: white; padding: 6px 10px; text-align: left; }
+  td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+  tr:nth-child(even) { background: #f2f6fc; }
+  .ok   { color: #1e8449; font-weight: bold; }
+  .warn { color: #e67e22; font-weight: bold; }
+  .fail { color: #c0392b; font-weight: bold; }
+  .metric { display: inline-block; background: #eaf2ff; border-radius: 6px;
+             padding: 8px 16px; margin: 6px; font-size: 14px; }
+  .metric b { display: block; font-size: 11px; color: #666; }
+  img { max-width: 100%; border: 1px solid #ccc; border-radius: 4px; margin: 8px 0; }
+  pre { background: #f4f4f4; padding: 12px; border-radius: 4px; font-size: 11px;
+         overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+  .section { margin: 20px 0; padding: 15px; border-left: 4px solid #1a5276;
+              background: #f8fbff; }
+</style>
+</head>
+<body>
+<h1>mRNA Neoantigen Vaccine Design Report</h1>
+<p><b>Construct:</b> MyVaccine &nbsp;|&nbsp; <b>Generated:</b> 2026-02-27 00:22 &nbsp;|&nbsp;
+   <b>Pipeline version:</b> 1.0.0</p>
+
+<div class="section">
+  <h2>Design Summary</h2>
+  <div class="metric">1042 nt<b>Total mRNA length</b></div>
+  <div class="metric">54.9%<b>GC Content</b></div>
+  <div class="metric">1.000<b>CAI (codon adaptation)</b></div>
+  <div class="metric">5<b>Neoantigen epitopes</b></div>
+  <div class="metric">209 aa<b>Fusion protein</b></div>
+</div>
+
+<h2>Architecture</h2>
+<pre>
+5'─[m7G Cap]─[5'UTR 49 nt]─[Kozak]─ATG─[Neoantigens+Linkers 50 aa]─[HBB 146 aa]─[3'UTR 237 nt]─[PolyA 120 nt]─3'
+</pre>
+
+
+    <div class="section">
+    <h2>Protein Quality</h2>
+    <h3>Physicochemical Properties</h3><table><tr><th>Property</th><th>Value</th></tr><tr><td><b>Length</b></td><td>209 aa</td></tr><tr><td><b>Molecular weight</b></td><td>22734 Da</td></tr><tr><td><b>Isoelectric point</b></td><td>6.44</td></tr><tr><td><b>Instability index</b></td><td>10.8 (stable)</td></tr><tr><td><b>GRAVY</b></td><td>0.0541 (OK)</td></tr><tr><td><b>Aromaticity</b></td><td>0.0909</td></tr></table>
+    <p><b>Flags:</b> <span class="ok">OK</span></p>
+    <h3>Solubility & Aggregation</h3><table><tr><th>Property</th><th>Value</th></tr><tr><td><b>Mean KD hydrophobicity</b></td><td>0.054</td></tr><tr><td><b>Aggregation risk windows</b></td><td>11</td></tr><tr><td><b>Net charge (pH 7.4)</b></td><td>-3.36</td></tr></table>
+    </div>
+
+
+    <div class="section">
+    <h2>mRNA Properties</h2>
+    <h3>mRNA Metrics</h3><table><tr><th>Property</th><th>Value</th></tr><tr><td><b>Total length</b></td><td>1042 nt</td></tr><tr><td><b>GC content</b></td><td>54.9%</td></tr><tr><td><b>CAI</b></td><td>1.0</td></tr><tr><td><b>Global MFE</b></td><td>-474.20001220703125 kcal/mol</td></tr><tr><td><b>MFE flag</b></td><td>WARNING: MFE -474.2 kcal/mol — highly structured</td></tr><tr><td><b>PolyA signal</b></td><td>None at pos None — WARNING: No polyadenylation signal found</td></tr><tr><td><b>Uridine fraction</b></td><td>0.155</td></tr><tr><td><b>m1Ψ recommendation</b></td><td>Uridine fraction acceptable; m1Ψ still recommended for clinical use</td></tr></table>
+    </div>
+
+
+        <div class="section">
+        <h2>Top MHC-I Epitopes</h2>
+        <table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>neoantigen</th>
+      <th>peptide</th>
+      <th>start</th>
+      <th>end</th>
+      <th>length</th>
+      <th>allele</th>
+      <th>affinity_nM</th>
+      <th>presentation_score</th>
+      <th>binding_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EGFR_L858R_9mer</td>
+      <td>SVDNPHFQEL</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>HLA-A*02:01</td>
+      <td>670.910969</td>
+      <td>0.476205</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>EGFR_L858R_9mer</td>
+      <td>VDNPHFQEL</td>
+      <td>1</td>
+      <td>10</td>
+      <td>9</td>
+      <td>HLA-B*07:02</td>
+      <td>1739.598383</td>
+      <td>0.358044</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>BRAF_V600E</td>
+      <td>LEVELPQNL</td>
+      <td>1</td>
+      <td>10</td>
+      <td>9</td>
+      <td>HLA-A*02:01</td>
+      <td>1035.123034</td>
+      <td>0.294098</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>EGFR_L858R_9mer</td>
+      <td>SVDNPHFQEL</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>HLA-B*07:02</td>
+      <td>1787.397879</td>
+      <td>0.259790</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>EGFR_L858R_9mer</td>
+      <td>VDNPHFQEL</td>
+      <td>1</td>
+      <td>10</td>
+      <td>9</td>
+      <td>HLA-A*02:01</td>
+      <td>3784.332979</td>
+      <td>0.207705</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>TP53_R248W_9mer</td>
+      <td>HMVQLKDLRI</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>HLA-A*02:01</td>
+      <td>782.699525</td>
+      <td>0.177354</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>BRAF_V600E</td>
+      <td>ALEVELPQNL</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>HLA-A*02:01</td>
+      <td>829.977650</td>
+      <td>0.118208</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>KRAS_G12V_9mer</td>
+      <td>VVVGAVGVGK</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>HLA-A*02:01</td>
+      <td>8782.692009</td>
+      <td>0.100219</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>TP53_R248W_9mer</td>
+      <td>VQLKDLRI</td>
+      <td>2</td>
+      <td>10</td>
+      <td>8</td>
+      <td>HLA-A*02:01</td>
+      <td>17078.480160</td>
+      <td>0.065623</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>KRAS_G12V_9mer</td>
+      <td>VVVGAVGVGK</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>HLA-B*07:02</td>
+      <td>20471.585414</td>
+      <td>0.046672</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>TP53_R248W_9mer</td>
+      <td>MVQLKDLRI</td>
+      <td>1</td>
+      <td>10</td>
+      <td>9</td>
+      <td>HLA-A*02:01</td>
+      <td>4508.785642</td>
+      <td>0.042914</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>KRAS_G12V_9mer</td>
+      <td>VVGAVGVGK</td>
+      <td>1</td>
+      <td>10</td>
+      <td>9</td>
+      <td>HLA-A*02:01</td>
+      <td>11871.080277</td>
+      <td>0.041784</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>TP53_R248W_9mer</td>
+      <td>VQLKDLRI</td>
+      <td>2</td>
+      <td>10</td>
+      <td>8</td>
+      <td>HLA-B*07:02</td>
+      <td>31348.514490</td>
+      <td>0.037475</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>BRAF_V600E</td>
+      <td>LEVELPQNL</td>
+      <td>1</td>
+      <td>10</td>
+      <td>9</td>
+      <td>HLA-B*07:02</td>
+      <td>16166.315952</td>
+      <td>0.028052</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>KRAS_G12V_9mer</td>
+      <td>VVGAVGVGK</td>
+      <td>1</td>
+      <td>10</td>
+      <td>9</td>
+      <td>HLA-B*07:02</td>
+      <td>20588.732045</td>
+      <td>0.024906</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>KRAS_G12V_9mer</td>
+      <td>VGAVGVGK</td>
+      <td>2</td>
+      <td>10</td>
+      <td>8</td>
+      <td>HLA-A*02:01</td>
+      <td>24752.788130</td>
+      <td>0.021903</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>TP53_R248W_9mer</td>
+      <td>MVQLKDLRI</td>
+      <td>1</td>
+      <td>10</td>
+      <td>9</td>
+      <td>HLA-B*07:02</td>
+      <td>9590.996300</td>
+      <td>0.021085</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>PIK3CA_H1047R</td>
+      <td>IHFPEGQTTK</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>HLA-A*02:01</td>
+      <td>23903.441118</td>
+      <td>0.020923</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>KRAS_G12V_9mer</td>
+      <td>VGAVGVGK</td>
+      <td>2</td>
+      <td>10</td>
+      <td>8</td>
+      <td>HLA-B*07:02</td>
+      <td>26834.211734</td>
+      <td>0.020284</td>
+      <td>non-binder</td>
+    </tr>
+    <tr>
+      <td>PIK3CA_H1047R</td>
+      <td>IHFPEGQTT</td>
+      <td>0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>HLA-A*02:01</td>
+      <td>24623.706240</td>
+      <td>0.019675</td>
+      <td>non-binder</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+
+
+    <div class="section">
+    <h2>mRNA Stability & Accessibility</h2>
+    <h3>Structural Metrics</h3><table><tr><th>Property</th><th>Value</th></tr><tr><td><b>5'UTR accessibility</b></td><td>0.733</td></tr><tr><td><b>5'UTR AUG region flag</b></td><td>OK</td></tr><tr><td><b>GC out-of-range windows</b></td><td>65</td></tr><tr><td><b>GC flag</b></td><td>WARNING: 65 windows outside GC target.</td></tr></table>
+    </div>
+
+
+        <div class="section">
+        <h2>Proteasomal Cleavage per Epitope</h2>
+        <table>
+        <tr><th>Epitope</th><th>Position</th><th>Mean Score</th><th>C-term Score</th><th>Flag</th></tr>
+        <tr><td>KRAS_G12V_9mer</td><td>1–11</td><td>0.537</td><td>0.300</td><td><span class="warn">WARNING: low C-terminal cleavage score</span></td></tr><tr><td>TP53_R248W_9mer</td><td>14–24</td><td>0.464</td><td>1.000</td><td><span class="ok">OK</span></td></tr><tr><td>EGFR_L858R_9mer</td><td>27–37</td><td>0.240</td><td>0.844</td><td><span class="ok">OK</span></td></tr><tr><td>PIK3CA_H1047R</td><td>40–50</td><td>0.142</td><td>0.300</td><td><span class="warn">WARNING: low C-terminal cleavage score</span></td></tr><tr><td>BRAF_V600E</td><td>53–63</td><td>0.337</td><td>0.844</td><td><span class="ok">OK</span></td></tr>
+        </table>
+        </div>
+
+<h2>Analysis Plots</h2><h3>GC Content Profile</h3><img src="mrna_gc.png"><h3>Proteasomal Cleavage</h3><img src="cleavage.png"><h3>Hydrophobicity Scan (Kyte-Doolittle)</h3><img src="kd_scan.png"><h3>MHC-I Binding Heatmap</h3><img src="mhc_heatmap.png"><h3>mRNA MFE Sliding Window (CDS)</h3><img src="mfe_windows.png">
+
+<h2>Full mRNA Sequence (RNA)</h2>
+<pre>ACAUUUGCUUCUGACACAACUGUGUUCACUAGCAACCUCAAACAGACACGCCACCAUGGUGGUGGUGGGCGCCGUGGGCG
+UGGGCAAGGCCGCCUACCACAUGGUGCAGCUGAAGGACCUGAGAAUCGCCGCCUACAGCGUGGACAACCCCCACUUCCAG
+GAGCUGGCCGCCUACAUCCACUUCCCCGAGGGCCAGACCACCAAGGCCGCCUACGCCCUGGAGGUGGAGCUGCCCCAGAA
+CCUGGUGCACCUGACCCCCGAGGAGAAGAGCGCCGUGACCGCCCUGUGGGGCAAGGUGAACGUGGACGAGGUGGGCGGCG
+AGGCCCUGGGCAGACUGCUGGUGGUGUACCCCUGGACCCAGAGAUUCUUCGAGAGCUUCGGCGACCUGAGCACCCCCGAC
+GCCGUGAUGGGCAACCCCAAGGUGAAGGCCCACGGCAAGAAGGUGCUGGGCGCCUUCAGCGACGGCCUGGCCCACCUGGA
+CAACCUGAAGGGCACCUUCGCCACCCUGAGCGAGCUGCACUGCGACAAGCUGCACGUGGACCCCGAGAACUUCAGACUGC
+UGGGCAACGUGCUGGUGUGCGUGCUGGCCCACCACUUCGGCAAGGAGUUCACCCCCCCCGUGCAGGCCGCCUACCAGAAG
+GUGGUGGCCGGCGUGGCCAACGCCCUGGCCCACAAGUACCACUGAAGUAACGGCAGACUUCUCCUCAGGAGUCAGGUGCA
+CCAUGGUGUCUGUUUGAGGUUGCUAGUGAACACAGUUGUGUCAGAAGCAAAUGUAAGCAAUAGAUGGCUCUGCCCUGACU
+UUUAUGCCCAGCCCUGGCUCCUGCCCUCCCUGCUCCUGGGAGUAGAUUGGCCAACCCUAGUCUGGAGUCUGACAGGAGUC
+AGGGCAGAGCCAUCUAUUGCUUACAUUUGCUUCUGACACAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AA</pre>
+
+<h2>Full Fusion Protein Sequence</h2>
+<pre>MVVVGAVGVGKAAYHMVQLKDLRIAAYSVDNPHFQELAAYIHFPEGQTTKAAYALEVELP
+QNLVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGN
+PKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHH
+FGKEFTPPVQAAYQKVVAGVANALAHKYH</pre>
+
+<footer>
+<hr>
+<p style="font-size:11px;color:#888">
+Generated by mRNA Neoantigen Vaccine Pipeline v1.0.0 |
+References: Kreiter et al. 2015 Nature; Orlandini von Niessen et al. 2019 Nat Commun;
+O'Donnell et al. 2020 Cell Systems (mhcflurry); Lorenz et al. 2011 (ViennaRNA)
+</p>
+</footer>
+</body>
+</html>

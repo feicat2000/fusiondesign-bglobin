@@ -1,0 +1,10 @@
+>KRAS_G12V_9mer description=KRAS_G12V neoantigen context peptide
+VVVGAVGVGK
+>TP53_R248W_9mer description=TP53_R248W hotspot neoantigen
+HMVQLKDLRI
+>EGFR_L858R_9mer description=EGFR_L858R lung cancer neoantigen
+SVDNPHFQEL
+>PIK3CA_H1047R description=PIK3CA_H1047R common breast/colon neoantigen
+IHFPEGQTTK
+>BRAF_V600E description=BRAF_V600E melanoma hotspot neoantigen
+ALEVELPQNL

@@ -1,0 +1,37 @@
+LOCUS       MyVaccine               1042 bp    RNA              UNK 01-JAN-1980
+DEFINITION  mRNA neoantigen-HBB fusion, 1042 nt.
+ACCESSION   MyVaccine
+VERSION     MyVaccine
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     five_prime_UTR  1..55
+                     /label="5UTR"
+     CDS             56..685
+                     /label="CDS"
+     three_prime_UTR 686..922
+                     /label="3UTR"
+     polyA_signal    923..1042
+                     /label="polyA"
+ORIGIN
+        1 acauuugcuu cugacacaac uguguucacu agcaaccuca aacagacacg ccaccauggu
+       61 gguggugggc gccgugggcg ugggcaaggc cgccuaccac auggugcagc ugaaggaccu
+      121 gagaaucgcc gccuacagcg uggacaaccc ccacuuccag gagcuggccg ccuacaucca
+      181 cuuccccgag ggccagacca ccaaggccgc cuacgcccug gagguggagc ugccccagaa
+      241 ccuggugcac cugacccccg aggagaagag cgccgugacc gcccuguggg gcaaggugaa
+      301 cguggacgag gugggcggcg aggcccuggg cagacugcug gugguguacc ccuggaccca
+      361 gagauucuuc gagagcuucg gcgaccugag cacccccgac gccgugaugg gcaaccccaa
+      421 ggugaaggcc cacggcaaga aggugcuggg cgccuucagc gacggccugg cccaccugga
+      481 caaccugaag ggcaccuucg ccacccugag cgagcugcac ugcgacaagc ugcacgugga
+      541 ccccgagaac uucagacugc ugggcaacgu gcuggugugc gugcuggccc accacuucgg
+      601 caaggaguuc accccccccg ugcaggccgc cuaccagaag gugguggccg gcguggccaa
+      661 cgcccuggcc cacaaguacc acugaaguaa cggcagacuu cuccucagga gucaggugca
+      721 ccaugguguc uguuugaggu ugcuagugaa cacaguugug ucagaagcaa auguaagcaa
+      781 uagauggcuc ugcccugacu uuuaugccca gcccuggcuc cugcccuccc ugcuccuggg
+      841 aguagauugg ccaacccuag ucuggagucu gacaggaguc agggcagagc caucuauugc
+      901 uuacauuugc uucugacaca acaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa
+      961 aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa
+     1021 aaaaaaaaaa aaaaaaaaaa aa
+//

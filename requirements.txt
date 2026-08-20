@@ -1,0 +1,49 @@
+# =============================================================================
+# mRNA Neoantigen Vaccine Pipeline — Python Dependencies
+# =============================================================================
+# Install via:  pip install -r requirements.txt
+# Managed by:   setup.sh  (handles venv creation + optional packages)
+# =============================================================================
+
+# ── setuptools (pkg_resources needed by mhcflurry; pinned below 74 where it
+#    was separated into an independent package) ──────────────────────────────
+setuptools<74
+
+# ── core bioinformatics ───────────────────────────────────────────────────────
+biopython>=1.81
+
+# ── MHC-I binding prediction ─────────────────────────────────────────────────
+mhcflurry>=2.1.0          # pan-allele neural network predictor
+                           # After install: mhcflurry-downloads fetch
+
+# ── codon optimization ────────────────────────────────────────────────────────
+python-codon-tables>=0.1.12   # Kazusa codon usage tables (human, mouse, etc.)
+dnachisel>=3.2.11             # Constraint-based sequence optimization
+                               # (CAI, avoid restriction sites, avoid hairpins)
+
+# ── data & numerics ───────────────────────────────────────────────────────────
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+
+# ── visualization ─────────────────────────────────────────────────────────────
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# ── web API access (NetChop, NetMHCpan fallback) ──────────────────────────────
+requests>=2.31.0
+
+# ── report generation ─────────────────────────────────────────────────────────
+jinja2>=3.1.0
+weasyprint>=60.0              # HTML → PDF report; requires system libpango
+                               # Fallback: HTML-only report if unavailable
+
+# ── RNA secondary structure (optional — see setup.sh for ViennaRNA) ───────────
+# ViennaRNA  # Installed separately via setup.sh (system lib + PyPI wheel)
+
+# ── proteasomal cleavage (optional) ──────────────────────────────────────────
+# pepsickle  # Installed separately via setup.sh
+
+# ── progress & CLI ────────────────────────────────────────────────────────────
+tqdm>=4.66.0
+rich>=13.0.0                  # Rich terminal output
